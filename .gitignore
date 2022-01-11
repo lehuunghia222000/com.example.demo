@@ -20,3 +20,9 @@
 *.rar
 
 # virtual machine crash logs, see
+
+#Directory
+.idea
+.idea/*
+.gradle
+.gradle/*
