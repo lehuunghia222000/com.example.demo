@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="960c2827-647a-41ed-9b7e-9139f248b461" name="demo" url="jdbc:postgresql://localhost/demo?enabledTLSProtocols=TLSv1, TLSv1.1, TLSv1.3, TLSv1.2" driverClass="org.postgresql.Driver" />
+    </data-sources>
+  </component>
+</project>

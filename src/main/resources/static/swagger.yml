@@ -1,0 +1,120 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server studentmanager server"
+  version: "1.0.0"
+  title: "Student Manager"
+
+host: "localhost8080"
+basePath: "/student"
+tags:
+  - name: "student"
+    description: "Everything about your Student"
+schemes:
+  - "http"
+paths:
+  /:
+    post:
+      tags:
+        - "student"
+      summary: "Add a new student to the class"
+      consumes:
+        - "application/json"
+        - "application/xml"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Student object that needs to be added to the class"
+          required: true
+          schema:
+            $ref: "#/definitions/Student"
+      responses:
+        "405":
+          description: "Invalid input"
+    put:
+      tags:
+        - "student"
+      summary: "Update an existing student"
+      consumes:
+        - "application/json"
+        - "application/xml"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "student object that needs to be added to the class"
+          required: true
+          schema:
+            $ref: "#/definitions/Student"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Student not found"
+        "405":
+          description: "Validation exception"
+    get:
+      tags:
+        - "student"
+      summary: "Finds all student or by age"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - name: "age"
+          in: "query"
+          description: "Age values that need to be considered for filter"
+          required: false
+          type: "integer"
+          format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Student"
+        "400":
+          description: "Invalid status value"
+  /{id}:
+    delete:
+      tags:
+        - "student"
+      summary: "Deletes a student"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "Student id to delete"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Student not found"
+definitions:
+  Student:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      fName:
+        type: "string"
+      lName:
+        type: "string"
+      age:
+        type: "integer"
+        format: "int64"
+      className:
+        type: "string"
+    xml:
+      name: "User"
