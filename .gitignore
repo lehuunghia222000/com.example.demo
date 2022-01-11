@@ -26,3 +26,5 @@
 .idea/*
 .gradle
 .gradle/*
+build
+build/*
