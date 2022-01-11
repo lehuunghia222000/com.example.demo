@@ -4,15 +4,14 @@ info:
   version: "1.0.0"
   title: "Student Manager"
 
-host: "localhost8080"
-basePath: "/student"
+host: "localhost:8080"
 tags:
   - name: "student"
     description: "Everything about your Student"
 schemes:
   - "http"
 paths:
-  /:
+  /student:
     post:
       tags:
         - "student"
@@ -21,8 +20,8 @@ paths:
         - "application/json"
         - "application/xml"
       produces:
-        - "application/xml"
         - "application/json"
+        - "application/xml"
       parameters:
         - in: "body"
           name: "body"
@@ -41,8 +40,8 @@ paths:
         - "application/json"
         - "application/xml"
       produces:
-        - "application/xml"
         - "application/json"
+        - "application/xml"
       parameters:
         - in: "body"
           name: "body"
@@ -62,8 +61,8 @@ paths:
         - "student"
       summary: "Finds all student or by age"
       produces:
-        - "application/xml"
         - "application/json"
+        - "application/xml"
       parameters:
         - name: "age"
           in: "query"
@@ -80,14 +79,14 @@ paths:
               $ref: "#/definitions/Student"
         "400":
           description: "Invalid status value"
-  /{id}:
+  /student/{id}:
     delete:
       tags:
         - "student"
       summary: "Deletes a student"
       produces:
-        - "application/xml"
         - "application/json"
+        - "application/xml"
       parameters:
         - name: "id"
           in: "path"
