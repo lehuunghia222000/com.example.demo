@@ -20,7 +20,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Student> getAllStudent(@Valid @RequestParam(required = false) @Min(18) Integer age){
 //        if (age == null)
         return studentService.findByAgeIs(age);
@@ -31,7 +31,7 @@ public class StudentController {
 //    public List<Student> getStudentByAge(@Valid @RequestParam(required = false) @Min(18) int age){
 //
 //    }
-    @PostMapping("/")
+    @PostMapping("")
     public Student postStudent(@RequestBody Student student){
         return studentService.addStudent(student);
     }
