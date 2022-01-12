@@ -32,30 +32,6 @@ paths:
       responses:
         "405":
           description: "Invalid input"
-    put:
-      tags:
-        - "student"
-      summary: "Update an existing student"
-      consumes:
-        - "application/json"
-        - "application/xml"
-      produces:
-        - "application/json"
-        - "application/xml"
-      parameters:
-        - in: "body"
-          name: "body"
-          description: "student object that needs to be added to the class"
-          required: true
-          schema:
-            $ref: "#/definitions/Student"
-      responses:
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Student not found"
-        "405":
-          description: "Validation exception"
     get:
       tags:
         - "student"
@@ -80,6 +56,36 @@ paths:
         "400":
           description: "Invalid status value"
   /student/{id}:
+    put:
+      tags:
+        - "student"
+      summary: "Update an existing student"
+      consumes:
+        - "application/json"
+        - "application/xml"
+      produces:
+        - "application/json"
+        - "application/xml"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "Student id to put"
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: "body"
+          name: "body"
+          description: "student object that needs to be added to the class"
+          required: true
+          schema:
+            $ref: "#/definitions/Student"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Student not found"
+        "405":
+          description: "Validation exception"
     delete:
       tags:
         - "student"

@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: /db/changelog/create-classroom-schema.xml
+  - include:
+      file: /db/changelog/insert-classroom-data.xml
+  - include:
+      file: /db/changelog/update-classroom-data.xml
