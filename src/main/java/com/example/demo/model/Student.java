@@ -25,7 +25,12 @@ public class Student {
     @Min(18)
     private Integer age;
     private String className;
-
+    public Student(String fName, String lName, Integer age, String className){
+        this.fName = fName;
+        this.lName = lName;
+        this.age = age;
+        this.className = className;
+    }
 //    public int getId(){
 //        return id;
 //    }
